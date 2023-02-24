@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="" class="h-100">
+
+<!-- Mirrored from chat.blockscan.com/apis by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Feb 2023 20:40:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /><title>
+	Blockscan Chat - Wallet to Wallet Messaging for Web3
+</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon5e1f.ico?v=2" /><link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" /><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" /><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet" />
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap-icons/font/bootstrap-icons.css" />
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="assets/css/theme.mine2ae.css?v=0.05" /><link rel="manifest" href="manifest.json" /></head>
+
+<!-- Modal: Prompt Add to Home Screen -->
+<div class="modal fade" id="addToHomeScreenModal" tabindex="-1" aria-labelledby="addToHomeScreenModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-flush">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="text-center mb-3">
+                    <span class="fs-1">📱</span>
+                    <h5 class="h4 modal-title mb-2" id="addToHomeScreenModalLabel">Add as App</h5>
+                    <p>For a more immersive user experience, add Blockscan Chat as an app.</p>
+                </div>
+
+                <div class="text-center my-4">
+                    <button id="btnAddToHomeScreenModal" type="button" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal: Prompt Add to Home Screen -->
+
+<!-- Modal: Prompt Add to Home Screen (iOS) -->
+<div class="modal fade" id="addToHomeScreeniOSModal" tabindex="-1" aria-labelledby="addToHomeScreeniOSModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-flush">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="text-center">
+                    <span class="fs-1">📱</span>
+                    <h5 class="modal-title" id="addToHomeScreeniOSModalLabel">Add as App</h5>
+                    <p class="pb-1">For a more immersive user experience, add Blockscan Chat as an app by following these instructions:</p>
+                </div>
+
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                        <div class="me-3">
+                            <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-6" style="width: 1.75rem; height: 1.75rem;">1</span>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            Open the page in <strong>Safari</strong>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                        <div class="me-3">
+                            <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-6" style="width: 1.75rem; height: 1.75rem;">2</span>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            Press the icon <i class="bi bi-box-arrow-up fs-5 ms-1"></i>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between py-3">
+                        <div class="me-3">
+                            <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-6" style="width: 1.75rem; height: 1.75rem;">3</span>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            Select <strong>Add to Home Screen</strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal: Prompt Add to Home Screen (iOS) -->
+
+
+    <body class="d-flex flex-column h-100">
+        <!-- ========== HEADER ========== -->
+        <header>
+            <nav class="navbar navbar-light py-3">
+                <div class="container gap-3">
+                    <div>
+                        <a class="navbar-brand me-0" href="start.html">
+                            <img class="w-120px w-sm-140px" src="assets/svg/logos/blockscan-logo-dark8ed9.svg?v=0.1.6" alt="Blockscan Logo">
+                        </a>
+                        <span class="d-none d-sm-inline-block fs-5 mx-1">|</span>
+                        <span class="d-none d-sm-inline-block fs-5">Chat</span>
+                    </div>
+
+                    
+                </div>
+            </nav>
+        </header>
+        <!-- ========== HEADER ========== -->
+
+        <!-- ========== MAIN CONTENT ========== -->
+        
+            <main id="content" role="main" class="flex-shrink-0">
+                <section class="pt-4 pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-8">
+
+                                <div class="text-center mb-4">
+                                    <h1 class="h2 fw-bold">Developer Chat APIs</h1>
+                                    <p class="fs-5">The Blockscan Chat Developer API can be used for integrations into an existing web3 application.</p>
+                                    <div class="text-muted">💡 Accounts with API keys do not support end-to-end encryption.</div>
+                                </div>
+
+                                
+                                 
+                                <form method="post" action="https://chat.blockscan.com/apis" id="ctl00">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="olOrtlFJNo4JTEXMaHmn/mZoL7AMQpvsbSbvp+xOTE7xqnA9epx+yemdKl+Mv4fDRswwS73O527FNqCtsoJkZKlpOjlf97ME3OKqW7iCfKqoy/KHpCH8I8DiWyqU+eihHfL8bLy8/WqlRWlIVlGFOfe5Vz9iY1awzhJtF0kh7qaHR8H0DcLuXGYacYTp0KQrfUiF19vVcDgvFkPTkrbKjOK4xehGMW7tZG0VRKYy4Pd3Psi+sHr6FSb1RijbMXoWyNxYusIzOSuRICCMg+c+4KpBF1RyM/sxKQpst/bJhh0B5WA5sNgsAYAzZwcqyWFfXapMBryij7Z7NbNdXjBRzg==" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BFB0741D" />
+</div>
+                                
+                                </form>
+                                <br><br><center>You must be <a href='connect-wallet.html'>logged in</a> to access this page</center>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        
+        <!-- ========== END MAIN CONTENT ========== -->
+
+    </body>
+
+
+<!-- ========== Footer ========== -->
+<footer class="border-top py-3 mt-auto small">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between gap-1">
+            <!-- Powered by Blockscan -->
+            <div class="d-flex flex-wrap align-items-center me-3">
+                <spa>Blockscan © 2022 (SvrA)</spa>
+                <span class="text-muted mx-2">|</span>
+                <span><span class="d-none d-sm-inline-block">Made with <span class="text-danger">❤</span> by the team behind <a class="link-dark text-decoration-underline" title="Etherscan" href="https://etherscan.io/" target="_blank">Etherscan</a></span></span>
+            </div>
+            <!-- End Powered by Blockscan -->
+
+            <div class="d-flex gap-2">
+                <a class="link-dark text-decoration-underline" href="https://blockscan.com/" target="_blank">Blockscan</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="faq.html">FAQs</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="apis.html">API</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="https://blockscan.com/terms" target="_blank">TOS</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="https://twitter.com/BlockscanHQ" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS Global Compulsory  -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    // SET DEFAULT STATE ON TOUCHABLE DEVICES
+    // =======================================================
+    const isTouchDevice = (('ontouchstart' in window)
+        || (navigator.maxTouchPoints > 0)
+        || (navigator.msMaxTouchPoints > 0))
+        && window.innerWidth <= 991
+
+    if (isTouchDevice && !window.matchMedia('(display-mode: standalone)').matches) {
+
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            const addToHomeScreeniOSModal = new bootstrap.Modal(document.getElementById('addToHomeScreeniOSModal'));
+            addToHomeScreeniOSModal.show();
+        }
+        else {
+            const addToHomeScreenModal = new bootstrap.Modal(document.getElementById('addToHomeScreenModal'));
+
+            window.addEventListener("beforeinstallprompt", function (event) {
+                event.preventDefault();
+                addToHomeScreenModal.show();
+                window.promptEvent = event;
+            });
+
+            document.getElementById('btnAddToHomeScreenModal').addEventListener("click", function (event) {
+                addToHomeScreenModal.hide();
+                window.promptEvent.prompt();
+            });
+        }
+    }
+
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker
+                .register("serviceWorker.js")
+                .then(res => console.log('service worker registered'))
+                .catch(err => console.log("service worker not registered", err))
+        })
+    }
+</script>
+</body>
+
+<!-- Mirrored from chat.blockscan.com/apis by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Feb 2023 20:40:03 GMT -->
+</html>

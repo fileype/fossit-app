@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="" class="h-100">
+
+<!-- Mirrored from chat.blockscan.com/start by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Feb 2023 20:39:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /><title>
+	Blockscan Chat - Wallet to Wallet Messaging for Web3
+</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon5e1f.ico?v=2" /><link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" /><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" /><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet" />
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap-icons/font/bootstrap-icons.css" />
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="assets/css/theme.mine2ae.css?v=0.05" /><link rel="manifest" href="manifest.json" /></head>
+
+<!-- Modal: Prompt Add to Home Screen -->
+<div class="modal fade" id="addToHomeScreenModal" tabindex="-1" aria-labelledby="addToHomeScreenModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-flush">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="text-center mb-3">
+                    <span class="fs-1">📱</span>
+                    <h5 class="h4 modal-title mb-2" id="addToHomeScreenModalLabel">Add as App</h5>
+                    <p>For a more immersive user experience, add Blockscan Chat as an app.</p>
+                </div>
+
+                <div class="text-center my-4">
+                    <button id="btnAddToHomeScreenModal" type="button" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal: Prompt Add to Home Screen -->
+
+<!-- Modal: Prompt Add to Home Screen (iOS) -->
+<div class="modal fade" id="addToHomeScreeniOSModal" tabindex="-1" aria-labelledby="addToHomeScreeniOSModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-flush">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="text-center">
+                    <span class="fs-1">📱</span>
+                    <h5 class="modal-title" id="addToHomeScreeniOSModalLabel">Add as App</h5>
+                    <p class="pb-1">For a more immersive user experience, add Blockscan Chat as an app by following these instructions:</p>
+                </div>
+
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                        <div class="me-3">
+                            <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-6" style="width: 1.75rem; height: 1.75rem;">1</span>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            Open the page in <strong>Safari</strong>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                        <div class="me-3">
+                            <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-6" style="width: 1.75rem; height: 1.75rem;">2</span>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            Press the icon <i class="bi bi-box-arrow-up fs-5 ms-1"></i>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between py-3">
+                        <div class="me-3">
+                            <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-6" style="width: 1.75rem; height: 1.75rem;">3</span>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            Select <strong>Add to Home Screen</strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal: Prompt Add to Home Screen (iOS) -->
+
+
+    <body class="d-flex flex-column h-100">
+        <!-- ========== HEADER ========== -->
+        <header>
+            <nav class="navbar navbar-light bg-gray-50 py-3">
+                <div class="container gap-3">
+                    <div>
+                        <a class="navbar-brand me-0" href="start.html">
+                            <img class="w-120px w-sm-140px" src="assets/svg/logos/blockscan-logo-dark7129.svg?v=0.1.5" alt="Blockscan Logo">
+                        </a>
+                        <span class="d-none d-sm-inline-block fs-5 mx-2">| Chat</span>
+                    </div>
+                    <div>
+                        <a href='connect-wallet.html'><button type="button" class="btn btn-primary position-relative">Connect<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id='badgecounter'></span><i class="bi bi-arrow-right ms-1"></i></button></a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- ========== HEADER ========== -->
+
+
+        
+
+        <!-- ========== MAIN CONTENT ========== -->
+        <main id="content" role="main" class="flex-shrink-0">
+            <!-- Hero Content -->
+            <section class="bg-gray-50 pt-5">
+                <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-7 text-center text-lg-start">
+                            <h1 class="fw-black display-7"><span class="d-none d-sm-inline-block">Welcome to</span> Blockscan Chat <sup><span class="d-none d-sm-inline badge fs-6 border border-2 border-dark text-dark shadow">Beta</span></sup>
+                            </h1>
+                            <p class="fs-4 mb-4">
+                                A messaging platform for users to simply and instantly message each other wallet-to-wallet, powered by
+                                <img src='images/ethereum-icon.png' width="28" />
+                                Log-in With Ethereum
+                            </p>
+                            <div class="d-none d-lg-block">
+                                <img class="img-fluid position-relative 1opacity-75" width="600" style="bottom: -4rem;" src="assets/svg/illustrations/fly-muted.svg" alt="FLy">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 mb-n6">
+                            <div class="card border-0 shadow-lg mx-2 mx-lg-0">
+                                <!-- Browser Header -->
+                                <div class="device-browser-header">
+                                    <div class="device-browser-header-btn-list">
+                                        <span class="device-browser-header-btn-list-btn"></span>
+                                        <span class="device-browser-header-btn-list-btn"></span>
+                                        <span class="device-browser-header-btn-list-btn"></span>
+                                    </div>
+                                    <div class="device-browser-header-browser-bar">Chat</div>
+                                </div>
+                                <!-- End Browser Header -->
+
+                                <!-- Degen Box -->
+                                <div class="d-flex flex-column" style="max-height: 500px;">
+                                    <!-- Chat Content -->
+                                    <div class="js-chat-content d-flex flex-column overflow-y-auto h-100 gap-3 p-3">
+                                        <div class="text-center small lh-1 text-muted">~ no more new messages to load ~</div>
+
+                                        <!-- Bubbles -->
+                                        <div class="d-flex align-items-end">
+                                            <img class="rounded-circle me-2" width="25" src="assets/img/avatars/address107129.png?v=0.1.5" alt="Address">
+
+                                            <div class="d-flex flex-column gap-1">
+                                                <div class="chat-ui-bubble">
+                                                    <div class="small text-muted me-2">
+                                                        <a class="link-muted" href="#" target="_blank">0xb02...8da9</a> on Sun 12:22 PM
+                                                    </div>
+
+                                                    <span>gm!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Bubbles -->
+
+                                        <!-- Bubbles -->
+                                        <div class="d-flex align-items-end">
+                                            <img class="rounded-circle me-2" width="25" src="assets/img/avatars/address97129.png?v=0.1.5" alt="Address">
+
+                                            <div class="d-flex flex-column gap-1">
+                                                <div class="chat-ui-bubble">
+                                                    <div class="small text-muted me-2">
+                                                        <a class="link-muted" href="#" target="_blank">0xb02...8da9</a> on Sun 12:22 PM
+                                                    </div>
+
+                                                    <span>wagme!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Bubbles -->
+
+                                        <!-- Bubbles -->
+                                        <div class="d-flex align-items-end">
+                                            <img class="rounded-circle me-2" width="25" src="assets/img/avatars/address57129.png?v=0.1.5" alt="Address">
+
+                                            <div class="d-flex flex-column gap-1">
+                                                <div class="chat-ui-bubble">
+                                                    <div class="small text-muted me-2">
+                                                        <a class="link-muted" href="#" target="_blank">0xb02...8da9</a> on Sun 12:22 PM
+                                                    </div>
+
+                                                    <span>HODL! HODL! HODL! HODL! HODL!</span>
+                                                </div>
+
+                                                <div class="chat-ui-bubble">
+                                                    <div class="small text-muted me-2">
+                                                        <a class="link-muted" href="#" target="_blank">0xb02...8da9</a> on Sun 12:22 PM
+                                                    </div>
+
+                                                    <span>🤖🤖🤖</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Bubbles -->
+
+                                        <!-- Bubbles -->
+                                        <div class="d-flex align-items-end">
+                                            <img class="rounded-circle me-2" width="25" src="assets/img/avatars/address17129.png?v=0.1.5" alt="Address">
+
+                                            <div class="d-flex flex-column gap-1">
+                                                <div class="chat-ui-bubble">
+                                                    <div class="small text-muted me-2">
+                                                        <a class="link-muted" href="#" target="_blank">0xb02...8da9</a> on Sun 12:22 PM
+                                                    </div>
+
+                                                    <span>fomo!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Bubbles -->
+
+                                        <!-- Bubbles -->
+                                        <div class="d-flex align-items-end">
+                                            <img class="rounded-circle me-2" width="25" src="assets/img/avatars/address37129.png?v=0.1.5" alt="Address">
+
+                                            <div class="d-flex flex-column gap-1">
+                                                <div class="chat-ui-bubble chat-ui-bubble-highlight">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="small text-muted me-2">
+                                                            <a class="link-muted" href="#" target="_blank">You</a> on Sun 12:26 PM
+                                                        </div>
+
+                                                        <div class="dropdown ms-auto">
+                                                            <button class="btn btn-sm py-0" type="button" id="dropdownMenuChatBubble4" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class="bi bi-three-dots"></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu shadow" aria-labelledby="dropdownMenuChatBubble4">
+                                                                <li><a class="dropdown-item text-danger" href="#">Delete message</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <span>gm! 🧭</span>
+                                                </div>
+
+                                                <div class="chat-ui-bubble chat-ui-bubble-highlight">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="small text-muted me-2">
+                                                            <a class="link-muted" href="#" target="_blank">You</a> on Sun 11:47 PM
+                                                        </div>
+
+                                                        <div class="dropdown ms-auto">
+                                                            <button class="btn btn-sm py-0" type="button" id="dropdownMenuChatBubble8" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class="bi bi-three-dots"></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu shadow" aria-labelledby="dropdownMenuChatBubble8">
+                                                                <li><a class="dropdown-item text-danger" href="#">Delete message</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <span>ETH is 🔥</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Bubbles -->
+
+                                        <!-- Bubbles -->
+                                        <div class="d-flex align-items-end">
+                                            <img class="rounded-circle me-2" width="25" src="assets/img/avatars/address27129.png?v=0.1.5" alt="Address">
+
+                                            <div class="d-flex flex-column gap-1">
+                                                <div class="chat-ui-bubble">
+                                                    <div class="small text-muted me-2">
+                                                        <a class="link-muted" href="#" target="_blank">0xb02...8da9</a> on Mon 08:17 PM
+                                                    </div>
+
+                                                    <span>gm!</span>
+                                                </div>
+
+                                                <div class="chat-ui-bubble">
+                                                    <div class="small text-muted me-2">
+                                                        <a class="link-muted" href="#" target="_blank">0xb02...8da9</a> on Mon 08:17 PM
+                                                    </div>
+
+                                                    <span>wagmi!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Bubbles -->
+
+                                        <!-- Bubbles -->
+                                        <div class="d-flex align-items-end">
+                                            <img class="me-2" width="25" src="assets/svg/logos/blockscan-logo-symbol-dark7129.svg?v=0.1.5" alt="Blockscan">
+
+                                            <div class="d-flex flex-column gap-1">
+                                                <div class="chat-ui-bubble">
+                                                    <div class="small text-muted me-2">
+                                                        <a class="link-muted" href="#" target="_blank">Blockscan</a> on Sun 12:22 PM
+                                                    </div>
+
+                                                    <span>Welcome to Blockscan Chat! 👋</span>
+                                                </div>
+
+                                                <div class="chat-ui-bubble">
+                                                    <div class="small text-muted me-2">
+                                                        <a class="link-muted" href="#" target="_blank">Blockscan</a> on Sun 12:22 PM
+                                                    </div>
+
+                                                    <span>Blockscan Chat is a messaging platform for users to simply and instantly message each other, wallet-to-wallet</span>
+                                                </div>
+
+                                                <div class="chat-ui-bubble">
+                                                    <div class="small text-muted me-2">
+                                                        <a class="link-muted" href="#" target="_blank">Blockscan</a> on Sun 12:22 PM
+                                                    </div>
+
+                                                    <span>Never share your confidential information, passwords, private keys or seed phrases with ANYONE! Be extra careful when receiving any external links or online forms. Always keep an eye out for malicious parties in the Dark Forest 👀</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Bubbles -->
+
+                                    </div>
+                                    <!-- Chat Content -->
+
+
+                                    <!-- Message Input -->
+                                    <!-- End Message Input -->
+
+
+                                </div>
+                                <!-- End Degen Box -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Hero Content -->
+
+            <!-- Info Cards -->
+            <section class="pt-8 pb-4 pb-lg-8">
+                <div class="container">
+                    <h2 class="h4 mb-4">Features</h2>
+
+                    <div class="row row-cols-2 row-cols-sm-3 row-cols-xl-4">
+                        <div class="col mb-4">
+                            <div class="card shadow h-100 p-4">
+                                <div class="fs-3 mb-2">
+                                    <i class="bi bi-send"></i>
+                                </div>
+                                <h3 class="h6 fw-bold">Instant Chat</h3>
+                                <p class="mb-0">Wallet-to-wallet instant chat with any Ethereum-compatible address.</p>
+                            </div>
+                        </div>
+
+                        <div class="col mb-4">
+                            <div class="card shadow h-100 p-4">
+                                <div class="fs-3 mb-2">
+                                    <i class="bi bi-lock"></i>
+                                </div>
+                                <h3 class="h6 fw-bold">End-to-end Encryption</h3>
+                                <p class="mb-0">Chat messages between signed-in addresses are encrypted by default.</p>
+                            </div>
+                        </div>
+
+                        <div class="col mb-4">
+                            <div class="card shadow h-100 p-4">
+                                <div class="fs-3 mb-2">
+                                    <i class="bi bi-qr-code-scan"></i>
+                                </div>
+                                <h3 class="h6 fw-bold">Multi-Device Login</h3>
+                                <p class="mb-0">Access your chat messages across multiple devices.</p>
+                            </div>
+                        </div>
+
+                        <div class="col mb-4">
+                            <div class="card shadow h-100 p-4">
+                                <div class="fs-3 mb-2">
+                                    <i class="bi bi-slash-circle"></i>
+                                </div>
+                                <h3 class="h6 fw-bold">Block Addresses</h3>
+                                <p class="mb-0">Getting spammed by an address? Block the owner from messaging you.</p>
+                            </div>
+                        </div>
+
+                        <div class="col mb-4">
+                            <div class="card shadow h-100 p-4">
+                                <div class="fs-3 mb-2">
+                                    <i class="bi bi-app-indicator"></i>
+                                </div>
+                                <h3 class="h6 fw-bold">Notifications</h3>
+                                <p class="mb-0">Receive notifications on your block explorer, browser, or email.</p>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <div class="card shadow h-100 p-4">
+                                <div class="fs-3 mb-2">
+                                    <i class="bi bi-magic"></i>
+                                </div>
+                                <h3 class="h6 fw-bold">Faucet</h3>
+                                <p class="mb-0">Send <b>/fund</b> to <a href="https://etherscan.io/enslookup-search?search=faucet.etherscan.eth" target="_blank">faucet.etherscan.eth</a> to receive Sepolia ETH!</p>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <div class="card shadow h-100 p-4">
+                                <div class="fs-3 mb-2">
+                                    <i class="bi bi-robot"></i>
+                                </div>
+                                <h3 class="d-flex align-items-center gap-2 h6 fw-bold">Recipes <span class="d-none d-sm-inline badge border border-2 border-dark text-dark shadow">Alpha</span>
+                                </h3>
+                                <p class="mb-0">Create your own chat recipes to automate actions using our <a href="https://www.npmjs.com/package/blockscanchat-sdk" target="_blank">SDK</a>.</p>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <div class="card shadow h-100 p-4">
+                                <div class="fs-3 mb-2">
+                                    <i class="bi bi-phone"></i>
+                                </div>
+                                <h3 class="h6 fw-bold">Progressive Web App (PWA)</h3>
+                                <p class="mb-0">Install as a PWA on your mobile device for a better user experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Info Cards -->
+        </main>
+        <!-- ========== END MAIN CONTENT ========== -->
+
+    </body>
+
+    <!-- JS Implementing Plugins -->
+    <script src="assets/vendor/emoji-picker-element/picker7129.js?v=0.1.5" type="module"></script>
+    <script src="assets/vendor/hs-count-characters/dist/js/hs-count-characters.js"></script>
+    <script src="assets/vendor/lodash/lodash.min.js"></script>
+    <script src="jss/jquery.mine2ae.js?v=0.05"></script>
+
+    <script>
+
+        var ajaxmethodtype = "GET";
+
+        // AUTO SCROLL (CHAT CONTENT)
+        // =======================================================
+        const chatContent = document.querySelector('.js-chat-content');
+        if (chatContent) {
+            chatContent.scrollTop = chatContent.scrollHeight;
+        }
+
+        var timerQRCountdownobj;
+        var titletemplate = "Blockscan Chat $counter$ Wallet to Wallet Messaging for the Web3 Blockchain"
+        start_checkundreadmsgcount_loop()
+
+        function start_checkundreadmsgcount_loop(duration, display) {
+            var timer = duration, minutes, seconds;
+            timerQRCountdownobj = setInterval(function () {
+                checkundreadmsgcount()
+            }, 15000);
+        }
+
+        function checkundreadmsgcount() {
+            console.log("checkundreadmsgcount");
+            $.ajax({
+                dataType: "json",
+                method: ajaxmethodtype,
+                url: "/api.ashx",
+                data: {
+                    "method": "checkundreadmsgcount"
+                },
+                success: function (data) {
+                    console.log(">checkundreadmsgcount = " + JSON.stringify(data));
+                    var objData = jQuery.parseJSON(JSON.stringify(data));
+                    if (objData.status == 1) {
+                        if (data.result > 0) {
+                            document.getElementById("badgecounter").display = "block";
+                            document.getElementById("badgecounter").textContent = data.result;
+                            document.title = titletemplate.replace("$counter$", "(" + data.result + ")");
+                        } else {
+                            document.getElementById("badgecounter").display = "none";
+                            document.getElementById("badgecounter").textContent = "";
+                            document.title = titletemplate.replace("$counter$", "-");
+                        }
+                    } else {
+                        console.log("stopping timerQRCountdownobj..")
+                        document.title = titletemplate.replace("$counter$", "-");
+                        clearInterval(timerQRCountdownobj)
+                    }
+                },
+                error: function (xhr, textStatus, error) {
+                    /*$("#" + chatwithaddress + "_loader").empty();*/
+                    console.log("stopping timerQRCountdownobj..");
+                    clearInterval(timerQRCountdownobj);
+                    document.getElementById("badgecounter").display = "none";
+                    document.getElementById("badgecounter").textContent = "";
+                    document.title = titletemplate.replace("$counter$", "-");
+                    console.log("checkundreadmsgcount xhr : " + xhr.statusText + ", textStatus : " + textStatus + ", error : " + error);
+                    result = false;
+                }
+            })
+        }
+    </script>
+
+
+
+<!-- ========== Footer ========== -->
+<footer class="border-top py-3 mt-auto small">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between gap-1">
+            <!-- Powered by Blockscan -->
+            <div class="d-flex flex-wrap align-items-center me-3">
+                <spa>Blockscan © 2022 (SvrA)</spa>
+                <span class="text-muted mx-2">|</span>
+                <span><span class="d-none d-sm-inline-block">Made with <span class="text-danger">❤</span> by the team behind <a class="link-dark text-decoration-underline" title="Etherscan" href="https://etherscan.io/" target="_blank">Etherscan</a></span></span>
+            </div>
+            <!-- End Powered by Blockscan -->
+
+            <div class="d-flex gap-2">
+                <a class="link-dark text-decoration-underline" href="https://blockscan.com/" target="_blank">Blockscan</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="faq.html">FAQs</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="apis.html">API</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="https://blockscan.com/terms" target="_blank">TOS</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="https://twitter.com/BlockscanHQ" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS Global Compulsory  -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    // SET DEFAULT STATE ON TOUCHABLE DEVICES
+    // =======================================================
+    const isTouchDevice = (('ontouchstart' in window)
+        || (navigator.maxTouchPoints > 0)
+        || (navigator.msMaxTouchPoints > 0))
+        && window.innerWidth <= 991
+
+    if (isTouchDevice && !window.matchMedia('(display-mode: standalone)').matches) {
+
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            const addToHomeScreeniOSModal = new bootstrap.Modal(document.getElementById('addToHomeScreeniOSModal'));
+            addToHomeScreeniOSModal.show();
+        }
+        else {
+            const addToHomeScreenModal = new bootstrap.Modal(document.getElementById('addToHomeScreenModal'));
+
+            window.addEventListener("beforeinstallprompt", function (event) {
+                event.preventDefault();
+                addToHomeScreenModal.show();
+                window.promptEvent = event;
+            });
+
+            document.getElementById('btnAddToHomeScreenModal').addEventListener("click", function (event) {
+                addToHomeScreenModal.hide();
+                window.promptEvent.prompt();
+            });
+        }
+    }
+
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker
+                .register("serviceWorker.js")
+                .then(res => console.log('service worker registered'))
+                .catch(err => console.log("service worker not registered", err))
+        })
+    }
+</script>
+</body>
+
+<!-- Mirrored from chat.blockscan.com/start by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Feb 2023 20:39:58 GMT -->
+</html>

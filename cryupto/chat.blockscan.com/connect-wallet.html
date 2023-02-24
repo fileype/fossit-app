@@ -1,0 +1,1138 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="" class="h-100">
+
+<!-- Mirrored from chat.blockscan.com/connect-wallet by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Feb 2023 20:39:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /><title>
+	Blockscan Chat - Wallet to Wallet Messaging for Web3
+</title>
+    <script src="jss/web3.min.js"></script>
+    <script src="jss/jquery.mine2ae.js?v=0.05"></script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon5e1f.ico?v=2" /><link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" /><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" /><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet" />
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap-icons/font/bootstrap-icons.css" />
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="assets/css/theme.mine2ae.css?v=0.05" /><link rel="manifest" href="manifest.json" /></head>
+
+<!-- Modal: Prompt Add to Home Screen -->
+<div class="modal fade" id="addToHomeScreenModal" tabindex="-1" aria-labelledby="addToHomeScreenModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-flush">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="text-center mb-3">
+                    <span class="fs-1">📱</span>
+                    <h5 class="h4 modal-title mb-2" id="addToHomeScreenModalLabel">Add as App</h5>
+                    <p>For a more immersive user experience, add Blockscan Chat as an app.</p>
+                </div>
+
+                <div class="text-center my-4">
+                    <button id="btnAddToHomeScreenModal" type="button" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal: Prompt Add to Home Screen -->
+
+<!-- Modal: Prompt Add to Home Screen (iOS) -->
+<div class="modal fade" id="addToHomeScreeniOSModal" tabindex="-1" aria-labelledby="addToHomeScreeniOSModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-flush">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="text-center">
+                    <span class="fs-1">📱</span>
+                    <h5 class="modal-title" id="addToHomeScreeniOSModalLabel">Add as App</h5>
+                    <p class="pb-1">For a more immersive user experience, add Blockscan Chat as an app by following these instructions:</p>
+                </div>
+
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                        <div class="me-3">
+                            <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-6" style="width: 1.75rem; height: 1.75rem;">1</span>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            Open the page in <strong>Safari</strong>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                        <div class="me-3">
+                            <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-6" style="width: 1.75rem; height: 1.75rem;">2</span>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            Press the icon <i class="bi bi-box-arrow-up fs-5 ms-1"></i>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between py-3">
+                        <div class="me-3">
+                            <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-6" style="width: 1.75rem; height: 1.75rem;">3</span>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            Select <strong>Add to Home Screen</strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal: Prompt Add to Home Screen (iOS) -->
+
+
+    <body class="d-flex flex-column bg-gray-50 h-100">
+        <!-- ========== HEADER ========== -->
+        <header>
+            <nav class="navbar navbar-light py-3">
+                <div class="container gap-3">
+                    <div>
+                        <a class="navbar-brand me-0" href="start.html">
+                            <img class="w-120px w-sm-140px" src="assets/svg/logos/blockscan-logo-dark7129.svg?v=0.1.5" alt="Blockscan Logo">
+                        </a>
+                        <span class="d-none d-sm-inline-block fs-5 mx-1">|</span>
+                        <span class="d-none d-sm-inline-block fs-5">Chat</span>
+                    </div>
+                    <a class="btn btn-primary" href="start.html">
+                        <i class="bi bi-arrow-left me-1"></i>Go Back
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <!-- ========== HEADER ========== -->
+
+        <!-- ========== MAIN CONTENT ========== -->
+        <form method="post" action="https://chat.blockscan.com/connect-wallet" id="ctl00">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="d/oDEk9w075y9AxEwknoJxkixgRZKjYB0rMUS09A/KVshak2yjYWw1rrSqn8r4gEXOb8liWJY9xT0mZa+ejqKN35hM7Alwm7JHsaJFibLMKoSev8dPzquzGa+rRee8+QOifj88rasWcKgJCW9S7Fd9W+8oC8AQJoAbkYaK/m0DtFHmdB7me1TFew/MtNhxgxt/jyrI3A82x7OA0yGFi/SM9Suck5/Yq3PHkG3YBMq5MVht1xzj/BfDi3LvW1wjkYrg1TheJlgjVx6w+0Gw/euOh3sOtHazhAgGRJ3RtPu2j2DLjj1VDizG9HC93m5yNreQ9LRB0FG74emb2hlajkQ95IK/GhbR6sJ5kgXio5CdsEjuy1CWRUKp2lsp+j0wn8wUz4yYoLYWRvK92Ft+TTtaLWi3OUiLRUZhyyNbx/yQ0haF/jBCIfHKCy8NxhlMmool7XhkJfyfXUHOJIC6EKO45eCxGrAm/uCJeL+S4b8bXN6l9KlNOFMVKlEf/1Qd2Vta3mtRbKq+VwU/898EWrCmBnRJxmi1rwXcXvgSAYEywTxNcrS+AA4sI1PlpMnaOmVP/yPTtUlNId9pAwh9iLtn2sXCKyqNgFWwXokJhIwB+63/0nOD/rp+cou3s/kz1taVKDLJSzNW6PyU1Fj38U1PLMHqOATSPi3gJXykp5tsxw6Z6t1SfDW5aZaB41G9bIo12REAmbFjfMg2ezbrq4nEGICs/9C5v2ZpqxFISyc30SM1NLgm1HM5g9zt44G6uxuZIxl0DkLJqGni+l3MPKubusz0LS6QIkQWU/MzEHh9PurjRSrudMyyImSM9euMFEJSm8gPFU9gCqfQ2SIQbXXuzDHkLV8bWhDmOonuHdxLavRyJKt1FJpi+kNdNEFrudY0Qgn4t0ZznZ1h2Gf+Yrw02YtK1eDGrWrRcr2ywcQiTS2+GmTYW9bIsvi69SOBb+t5umE5BaaeI9Z438iZxevo61RxwMXQ/yZhK1zqx/U/CRZu6omZhkJv7zU2BrMFDpB8Tu3KFp12dImXb0PSoQsM7EuY4mO8ipkLcX5B0MtBsr0aZlxMlCMbgTHXUIRax1Wdh3r9iFEpv52hM9mfL8nEfGt8EX2+8HpFhKXLwnDM/1J0widIElA5CqbpWi2dyMjxSv1mcGrM6TKqSGqtj0XjkQq5TjjcyB6fTd0lF6y3v4CVktafqj0oDIhCgc7BwHhE7O5FHyJMi1Z8hzJr8+DruVMg2Gi4fRY5Ue5w+dhYhwtLh80cjY2QxKndtrEAhspFoiBhVPhZr7mcHaLRsvH+YuOt8RMUyO0fSaA0o4lWl5ZnQQNvdGVrosARZhpdcpLAnpcd3nikDwX7t/3MRDha0hrN1lYr2p8pKKvnwwHs39e17THFz30JfuYLK0GR9SUauCCcsdSF+xi12keS82bBroIwNsXKVPwvQ3meQ9QSlmIHle0Xb9R9dXJr2JNLMx" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="4167D4E1" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="gMIvARkAmkJ4brFL7oHT67jxwUkJcIUjE7UBDAg0liIM0M7L+1Fp4UeBSg7FWg0wLA8Sa+YiVoKjaO+HvE8ewjxS59c3MVTfqw0eFCCqipZ5adu7IqwZa26+1GEsYJjdFylpfbUZW/DwDFMeAMXqJ6YXo/QYeXCi7D8IPmMUg38j3tqsCzJpeiCRat7tUm5r3XSiF9YP5ejtANB2aGGgf+sjiD/iuHinf0nUJTqJb+tdx6kknyeXHXmsNrUTt+EGWe79ENXRc2JMUSge2Av3Gg==" />
+</div>
+            <main id="content" role="main" class="flex-shrink-0 pt-6 pb-7">
+                <div class="container">
+                    <!-- Info Cards -->
+                    <div class="row justify-content-center">
+                        <div class="col-md-9 col-lg-6 col-xl-5">
+                            <div class="text-center mb-4">
+                                <h1 class="h3 fw-bold">Login to Blockscan Chat</h1>
+                                <p class="fs-5">Connect with your web3 based wallet and sign-in</p>
+                            </div>
+                            <div class="text-center mb-3">
+                                <span id="maintitlemessage"></span>
+                                <br />
+                            </div>
+                            <div id="defaultstart">
+                                <!-- MetaMask -->
+                                <a class="d-flex text-dark shadow border rounded-xl bg-white bg-light--hover transition-all p-3 mb-2" href="#" id="metaMask_a" onclick="connect()">
+                                    <div class="me-3">
+                                        <span class="d-flex align-items-center justify-content-center bg-light shadow rounded-circle p-1" style="width: 4rem; height: 4rem;">
+                                            <img width="40" src="assets/svg/metamask9029.svg?v=0.1.3" alt="MetaMask Logo">
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex">
+                                            <h2 class="h5 fw-bold">MetaMask </h2>
+                                            <div class="ms-2" id="connectwalletlabel" style="display: none">
+                                                <span class="badge border shadow text-primary fw-medium">Connect Wallet</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-muted mb-0">Connect using a browser plugin or mobile app. Best supported on Chrome or Firefox.</p>
+                                    </div>
+                                </a>
+                                <!-- End MetaMask -->
+
+                                <!-- WalletConnect -->
+                                <a class="d-flex text-dark shadow border rounded-xl bg-white bg-light--hover transition-all p-3 mb-2" href="#" onclick="onConnect('walletconnect')">
+                                    <div class="me-3">
+                                        <span class="d-flex align-items-center justify-content-center bg-light shadow rounded-circle p-1" style="width: 4rem; height: 4rem;">
+                                            <img width="40" src="assets/svg/walletconnect9029.svg?v=0.1.3" alt="WalletConnect Logo">
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex">
+                                            <h2 class="h5 fw-bold">WalletConnect </h2>
+                                            <div class="ms-2" id="walletconnectlabel" style="display: none">
+                                                <span class="badge border shadow text-primary fw-medium">Wallet Connect</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-muted mb-0">Connect by scanning a QR code with any supported mobile wallet.</p>
+                                    </div>
+                                </a>
+                                <!-- End WalletConnect -->
+
+                                <!-- CoinBase -->
+                                <a class="d-flex text-dark shadow border rounded-xl bg-white bg-light--hover transition-all p-3 mb-2" href="#" onclick="onConnect('walletlink')">
+                                    <div class="me-3">
+                                        <span class="d-flex align-items-center justify-content-center bg-light shadow rounded-circle p-1" style="width: 4rem; height: 4rem;">
+                                            <img width="40" src="assets/svg/coinbase9029.svg?v=0.1.3" alt="CoinBase Logo">
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex">
+                                            <h2 class="h5 fw-bold">Coinbase Wallet </h2>
+                                            <div class="ms-2" id="coinbaselabel" style="display: none">
+                                                <span class="badge border shadow text-primary fw-medium">Coinbase Wallet</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-muted mb-0">Connect with Coinbase Wallet browser extension or mobile app. Best supported on Chrome...</p>
+                                    </div>
+                                </a>
+                                <!-- End CoinBase -->
+
+                                <br />
+                                <div class="text-center px-4 px-sm-5">
+                                    <p class="text-muted small">By connecting your wallet and signing a message, you agree to Blockscan's <a class="link-muted text-decoration-underline" href="https://blockscan.com/terms">Term’s &amp; Conditions</a> and <a class="link-muted text-decoration-underline" href="https://blockscan.com/privacyPolicy">Privacy Policy</a></p>
+                                </div>
+
+                            </div>
+
+                            
+                            <div id="maindiv" style="display: none">
+                                <hr />
+                                <div class="row">
+                                    <div class="row align-items-start">
+                                        <div class="col-md-3">
+                                            Step1
+                                        </div>
+                                        <div class="col-md-9">
+                                            &nbsp;
+                                        <button type="button" id="ShowButton" onclick="connect()">Connect MetaMask</button>
+                                        </div>
+                                    </div>
+
+                                    <div id="divlogin">
+
+                                        <div class="row align-items-start">
+                                            <div class="col-md-3">
+                                                Address :
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input name="ctl00$ContentPlaceHolder1$txtcurrentaddress" type="text" id="ContentPlaceHolder1_txtcurrentaddress" size="50" style="background-color: #f3f3f3" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row align-items-start mt-3">
+                                            <div class="col-md-12">
+                                                <span id="web3messagewallet"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row align-items-start mt-2">
+                                            <div class="col-md-3">
+                                                <b>(Step2)</b> &nbsp;
+                                            </div>
+                                            <div class="col-md-9">
+                                                Sign-in with
+                                            <button type="button" id="PersonalSign" onclick="personalsign()" class="btn btn-primary btn-sm">Metamask</button>
+                                                <span id="messagetosign_client"></span>
+                                                <br />
+                                                <textarea name="ctl00$ContentPlaceHolder1$txtmessage" rows="7" cols="20" id="ContentPlaceHolder1_txtmessage" class="small mt-2" style="width:440px;">
+</textarea>
+                                                <br />
+                                                <input id="ContentPlaceHolder1_chkRemember" type="checkbox" name="ctl00$ContentPlaceHolder1$chkRemember" checked="checked" /><label for="ContentPlaceHolder1_chkRemember"> Remember</label>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-start mt-4">
+                                            <div class="col-md-3">
+                                                [Signed Message Result]:
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input name="ctl00$ContentPlaceHolder1$txtpersonalSignResult" type="text" id="ContentPlaceHolder1_txtpersonalSignResult" size="50" style="background-color:Gainsboro;" />
+                                                <input name="ctl00$ContentPlaceHolder1$txtContractType" type="text" value="personal" id="ContentPlaceHolder1_txtContractType" class="hidden" style="background-color:Gainsboro;" />
+                                                <input name="ctl00$ContentPlaceHolder1$txte2eepublickey" type="text" id="ContentPlaceHolder1_txte2eepublickey" class="hidden" />
+                                                <input name="ctl00$ContentPlaceHolder1$txte2eekey" type="text" id="ContentPlaceHolder1_txte2eekey" class="hidden" />
+                                                <input type="submit" name="ctl00$ContentPlaceHolder1$btnVerifySignedMessageServerSide" value="VerifySignedMessage" id="ContentPlaceHolder1_btnVerifySignedMessageServerSide" class="hidden" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row align-items-start mt-3">
+                                        <div class="col-md-12">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            
+                            <div id="prepare" style="display: none">
+                                <button class="btn btn-primary" id="btn-connect">
+                                    Connect wallet
+                                </button>
+                            </div>
+                            <div id="connected" style="display: none">
+                                <center>
+                                    <button class="btn btn-primary m-4" onclick="wcsign()" id="btnwcsign">
+                                        <img width="20" src="assets/svg/walletconnecta959.svg?v=0.1.4" class="me-1" alt="WalletConnect Logo">
+                                        Sign-in with Web3Modal</button>
+                                    <button class="btn btn-secondary" id="btn-disconnect">Disconnect Web3Modal</button>
+                                </center>
+
+                                <hr />
+                                <div id="network">
+                                    <p>
+                                        <strong>Connected blockchain:</strong> <span id="network-name"></span>
+                                    </p>
+                                    <p>
+                                        <strong>Selected account:</strong> <span id="selected-account"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- End Info Cards -->
+                </div>
+            </main>
+        </form>
+        <!-- ========== END MAIN CONTENT ========== -->
+
+        <!-- ========== Modal: DISCLAIMER ========== -->
+        <div class="modal fade" id="disclaimerModal" tabindex="-1" aria-labelledby="disclaimerModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-flush">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center mb-3">
+                            <span class="fs-1">👋</span>
+                            <h5 class="h4 modal-title" id="disclaimerModalLabel">Before You Continue...</h5>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between py-3">
+                                <div class="me-3">
+                                    <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-4"
+                                        style="width: 2.5rem; height: 2.5rem;">🙌</span>
+                                </div>
+                                <div class="flex-grow-1 small">Keep it <strong>fun and friendly</strong>! Let's treat each other with the kindness and respect befitting our community.</div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between py-3">
+                                <div class="me-3">
+                                    <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-4"
+                                        style="width: 2.5rem; height: 2.5rem;">🤫</span>
+                                </div>
+                                <div class="flex-grow-1 small"><strong>Never share any confidential information</strong> including passwords, private keys or seed phrases to anyone online.</div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between py-3">
+                                <div class="me-3">
+                                    <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-4"
+                                        style="width: 2.5rem; height: 2.5rem;">🔐</span>
+                                </div>
+                                <div class="flex-grow-1 small">Given access to your device, someone could log you in to another device. If uncertain, simply <strong>log out from all sessions</strong>.</div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between py-3">
+                                <div class="me-3">
+                                    <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-4"
+                                        style="width: 2.5rem; height: 2.5rem;">💾</span>
+                                </div>
+                                <div class="flex-grow-1 small">Remember we're <strong>off-chain</strong>. Blockscan Chat (Built by Etherscan) is run on our servers and messages are not sent on any blockchain. Nor is there a guarantee that the recipient will see or reply to your message</div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between py-3">
+                                <div class="me-3">
+                                    <span class="d-flex justify-content-center align-items-center bg-light text-dark rounded-circle fs-4"
+                                        style="width: 2.5rem; height: 2.5rem;">🆕</span>
+                                </div>
+                                <div class="flex-grow-1 small">Blockscan Chat is currently in Beta mode. Please feel free to DM any feedback to <a target="_blank" href="https://etherscan.io/address/0x71c7656ec7ab88b098defb751b7401b5f6d8976f">Etherscan: Donate (0x71C...76F)</a>.</div>
+                            </li>
+                        </ul>
+                        <div class="text-center my-4">
+                            <button type="button" class="btn btn-lg btn-primary" data-bs-dismiss="modal" onclick="agree()">Understand and Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ========== End Modal: DISCLAIMER ========== -->
+
+        
+        <div class="modal fade" id="metamaskModal" tabindex="-1" aria-labelledby="metamaskModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-flush">
+                        <h5 class="modal-title" id="setblockuserModalLabel">Open Metamask
+                          <img src="images/Spinnersmall4.gif" id="setblockusermodalspinner" style="display: none;"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-0">
+                            To access Blockscan Chat on Metamask, please use MetaMask's in-app browser and open the following URL <b>https://chat.blockscan.com</b>. 
+                            <br />
+                            <br />
+                            Alternatively you may chose to login via the Desktop Multi Device Login option.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Ok</button>
+                        <button type="button" class="btn btn-info" onclick="navigatemetamaskmobile();">Yes, Open Metamask</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- ========== MODALS (OTHER CONTENTS) ========== -->
+        <!-- Modal: Scan for login passkey -->
+        <div class="modal fade" id="importPassKeyModal" tabindex="-1" aria-labelledby="importPassKeyLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-flush">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" data-id=''>
+                        <div class="text-center">
+                            <h5 class="modal-title" id="importPassKeyLabel">Login to Blockscan Chat...</h5>
+                            <p>Enter a password to login:</p>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="passwordE2ee" placeholder="Password" required>
+                        </div>
+                        <br />
+                        <button type="button" class="btn btn-lg btn-primary w-100" onclick="importPassKey($('#passwordE2ee').val())">
+                            <i class="bi bi-key me-1"></i>Sign In<span id="spinner"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal: Scan for login passkey -->
+
+        <!-- JS Global Compulsory  -->
+        <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="jss/walletlink_bundle.js"></script>
+        <script src="jss/vendor/%40walletconnect-web3-provider-1.8.0.min.js"></script>
+        <script src="jss/vendor/ethers-5.5.4.umd.min.js"></script>
+        <script src="jss/vendor/evm-chains-0.2.0.min.js"></script>
+        <script src="jss/vendor/web3modal-1.9.8.min.js"></script>
+        <script src="jss/ethcrypto_bundle.js"></script>
+        <script type="text/javascript" src="jss/walletconnect307f.js?v=0.04"></script>
+
+        <script>
+            var isloggedin = false;
+            var uniqueurl = window.location.hostname.replaceAll('.', '').toLowerCase();
+
+            var sess_none = "";
+            var sess_dt = "";
+            var msgtosign = "Blockscan Chat wants you to sign in with your web3 account\n[address]\n\nURI: https://chat.blockscan.com\nVersion: 1\nChain ID: ALL\nNonce: mc4anlpy\nIssued At: 2023-02-24T20:39:57.6958314Z\n";
+            var e2ee_msgtosign = "Enable Blockscan Chat end-to-end encryption_[ADDRESS]\n4lwtpwhhatgefixgxksvvzc9agaqkbqhptcnga8f7cbwzyh1jyffzfqnbxie5ztigtxgbravknxxrbr22vq6b26ikyiggrqdeujipmfmbhppfpmggc33ubyhbhzlswgr4f95v4rjxtqngqc8vfm6s8dxvzgsxqimzjtcx2admfnvyrnmktjjjjvwygzvk5lc1eqeepkfsr8bkgc2fxzcupnilwstgxd8rigavhuwljz3huf2hm3whts4dwnhbdf9";
+
+            var timer = window.setInterval(function () {
+                if (document.getElementById("ContentPlaceHolder1_txtmessage").value.toString().startsWith('Login failed')) {
+                    temp = document.getElementById("ContentPlaceHolder1_txtmessage").value.toString().split("|");
+                    if (temp.length > 0) {
+                        document.getElementById("maintitlemessage").innerHTML = temp[0];
+                        localStorage.removeItem(uniqueurl + '_' + temp[1].toLowerCase() + "_pkey");
+                    }
+                    window.clearInterval(timer);
+                }
+            }, 2000); // 1s interval
+
+            let currentAccount = null;
+
+            if (isloggedin == false) {
+
+                hidelogindiv("none");
+
+                document.getElementById("PersonalSign").disabled = true;
+
+                if (typeof window.ethereum !== 'undefined') {
+
+                    console.log('MetaMask is installed!');
+                    console.log('isMetaMask = ' + window.ethereum.isMetaMask);
+                    console.log('networkVersion = ' + window.ethereum.networkVersion);
+
+                    /*This method returns a Promise that resolves to a boolean indicating if MetaMask is unlocked by the user.MetaMask must be unlocked in order to perform any operation involving user accounts.Note that this method does not indicate if the user has exposed any accounts to the caller.*/
+                    //console.log(' ethereum._metamask.isUnlocked() = ' + ethereum._metamask.isUnlocked());               
+
+                    ethereum.on('connect', connectInfo => {
+                        /*The MetaMask provider emits this event when it first becomes able to submit RPC requests to a chain.
+                         * We recommend using a connect event handler and the ethereum.isConnected() method in order to determine when /if the provider is connected*/
+                        console.log('connectInfo.chainId = ' + connectInfo.chainId);
+                    });
+
+                    ethereum.on('accountsChanged', accounts => {
+                        /*The MetaMask provider emits this event whenever the return value of the eth_accounts RPC method changes.eth_accounts returns an array that is either empty 
+                         * or contains a single account address.The returned address, if any, is the address of the most recently used account that the caller is permitted to access.
+                         * Callers are identified by their URL origin, which means that all sites with the same origin share the same permissions.*/
+                        if (accounts.length === 0) {
+                            // MetaMask is locked or the user has not connected any accounts
+                            console.log('Please connect to MetaMask.');
+                            //document.querySelector('#ShowButton').innerHTML = 'Connect Metamask';
+                            //document.querySelector('#ShowButton').disabled = false;
+                            document.getElementById("connectwalletlabel").style.display = "none";
+                            document.getElementById("ContentPlaceHolder1_txtcurrentaddress").value = '';
+                            hidelogindiv("none");
+                        } else if (accounts[0] !== currentAccount || window.ethereum.selectedAddress != null) {
+                            currentAccount = accounts[0];
+                            // Do any other work!
+                            console.log('accountsChanged = ' + currentAccount);
+                            /*document.querySelector('#ShowButton').innerHTML = 'Connected';*/
+                            /*document.querySelector('#ShowButton').disabled = true;*/
+                            document.getElementById("connectwalletlabel").style.display = "block";
+                            document.getElementById("PersonalSign").disabled = false;
+                            document.getElementById("ContentPlaceHolder1_txtcurrentaddress").value = currentAccount;
+                            document.getElementById("maintitlemessage").innerHTML = "Metamask Switched to <a href='http://etherscan.io/address/" + currentAccount + "' target='_blank'>" + truncatemiddle(currentAccount, 24) + "</a>";
+                            document.getElementById("ContentPlaceHolder1_txtmessage").value = msgtosign.replace("[address]", currentAccount.toLowerCase());
+                            hidelogindiv("block");
+                        }
+                        //if (window.ethereum.selectedAddress != null) {
+                        //    document.getElementById("ContentPlaceHolder1_txtcurrentaddresstxtcurrentaddress").value = currentAccount;
+                        //    hidelogindiv("block");
+                        //}         
+
+                        console.log('Checking selectedAddress = ' + window.ethereum.selectedAddress);
+                        //document.getElementById("ContentPlaceHolder1_txtcurrentaddresstxtcurrentaddress").innerHTML = window.ethereum.selectedAddress;
+                    });
+
+                    ethereum.on('chainChanged', chainId => {
+                        console.log('chainChanged = ' + chainId);
+                    });
+
+                    ethereum.on('disconnect', error => {
+                        console.log('error.message = ' + error.message);
+                        console.log('error.code = ' + error.code);
+                        //console.log('error.data = ' + error.data);
+                    });
+
+                    ethereum.on('message', message => {
+                        console.log('message = ' + data);
+                    });
+
+                    if (ethereum.isMetaMask) {
+                        document.getElementById("connectwalletlabel").style.display = "block"
+                        //connect();
+                    }
+
+                    //window.ethereum.on('disconnect', handler: (error: ProviderRpcError) => void);
+
+                } else {
+                    console.log('MetaMask is NOT detected');
+                    //document.getElementById("txtcurrentaddress").value = '';
+                    if (/Android|iPhone|iPad|Opera Mini/i.test(navigator.userAgent)) {
+                        //do nothing
+                    } else {
+                        document.getElementById("maintitlemessage").innerText = 'Info: MetaMask is NOT detected, please enable it and refresh this page';
+                    }
+                    console.log("-MetaMask is not detected, please enable it and refresh this page")
+                    hidelogindiv("none");
+                };
+
+                function personalsign() {
+
+                    /*https://metamask.github.io/test-dapp/*/
+                    /*https://github.com/MetaMask/test-dapp/blob/main/src/index.js*/
+
+                    console.log("Calling personalsign..");
+
+                    try {
+                        const from = currentAccount;
+                        const msg = document.getElementById("ContentPlaceHolder1_txtmessage").value;
+                        //const msg = document.getElementById("messagetosign_client").innerHTML;
+
+                        const sign = ethereum.request({
+                            method: 'personal_sign',
+                            params: [msg, from, ''],
+                        });
+                        sign.then(
+                            async function (value) {
+                                console.log("success Value = " + value);
+                                ContentPlaceHolder1_txtpersonalSignResult.value = value;
+                                //gen key
+                                computeKey(currentAccount,'metamask','','');
+                            },
+                            function (error) {
+                                console.log(error);
+                                document.getElementById("metaMask_a").style = "pointer-events: ''; ";
+                            }
+                        );
+                    } catch (err) {
+                        console.error("Error:" + err);
+                        document.getElementById("metaMask_a").style = "pointer-events: ''; ";
+                    }
+
+                }
+
+                function successCallback(result) {
+                    console.log("successCallback: " + result);
+                }
+
+                function connect() {
+                    document.getElementById("metaMask_a").style = "pointer-events: none; ";
+                    if (typeof window.ethereum !== 'undefined') {
+                        ethereum
+                            .request({ method: 'eth_requestAccounts' })
+                            .then(handleAccountsChanged)
+                            .catch((err) => {
+                                if (err.code === 4001) {
+                                    // EIP-1193 userRejectedRequest error
+                                    // If this happens, the user rejected the connection request.
+                                    console.log('Please connect to MetaMask (1).');
+                                    document.getElementById("ContentPlaceHolder1_txtcurrentaddresstxtcurrentaddress").value = '';
+                                    //hidelogindiv("none");
+                                } else {
+                                    //console.log("err.code : " + err.code);
+                                    //console.log("err.message : " + err.message);                                                                
+                                    console.log(err);
+                                    //document.getElementById("maintitlemessage").innerText = err.message;
+                                    document.getElementById("ContentPlaceHolder1_txtcurrentaddresstxtcurrentaddress").value = '';
+                                    //hidelogindiv("none");
+                                }
+                            });
+                    } else {
+                        console.log("MetaMask is NOT detected")
+                        if (/Android|iPhone|iPad|Opera Mini/i.test(navigator.userAgent)) {
+                            console.log("mobile")
+                            $('#metamaskModal').modal('show')
+                        } else {
+                            console.log("desktop environment")
+                            document.getElementById("maintitlemessage").innerHTML = "<font color='red'>Info: Metamask extension not detected, please enable it and refresh this page</font>"
+                        }
+
+                    }
+                }
+
+                function handleAccountsChanged(accounts) {
+                    console.log("Calling handleAccountsChanged");
+                    if (accounts.length === 0) {
+                        // MetaMask is locked or the user has not connected any accounts
+                        console.log('Please connect to MetaMask (2).');
+                        hidelogindiv("none");
+                    } else if (accounts[0] !== currentAccount) {
+                        currentAccount = accounts[0];
+                        // Do any other work!
+                        /*console.log(' Do any other work');*/
+                        console.log("currentAccount = " + currentAccount);
+                        document.querySelector('#ShowButton').innerHTML = 'Metamask Already Connected';
+                        document.querySelector('#ShowButton').disabled = true;
+                        document.getElementById("ContentPlaceHolder1_txtcurrentaddress").value = currentAccount;
+                        document.getElementById("maintitlemessage").innerHTML = "Metamask Connected to <a href='https://etherscan.io/address/" + currentAccount + "'>" + truncatemiddle(currentAccount, 24) + "</a>";
+
+                        document.getElementById("PersonalSign").disabled = false;
+                        document.getElementById("ContentPlaceHolder1_txtmessage").value = msgtosign.replace("[address]", currentAccount.toLowerCase());
+                        hidelogindiv("block");
+
+                        personalsign();
+                    } else {
+                        console.log("handleAccountsChanged -> other")
+                        personalsign();
+                    }
+                }
+
+            } else {
+                hideshowmainndiv("none");
+            }
+
+            function hidelogindiv(displaystyle) {
+                var x = document.getElementById("divlogin");
+                x.style.display = displaystyle;
+            }
+
+            function hideshowmainndiv(displaystyle) {
+                var x = document.getElementById("maindiv");
+                x.style.display = displaystyle;
+            }
+
+            function appendToContainer1(strVal) {
+                $(".sidepanel1").append(strVal + "<br>");
+            }
+            function appendToContainer2(strVal) {
+
+                $(".sidepanel2").append(strVal + "<br>");
+            }
+
+            function converToLocalTime(serverDate) {
+                var dt = new Date(Date.parse(serverDate));
+                var localDate = dt;
+                var gmt = localDate;
+                var min = gmt.getTime() / 1000 / 60; // convert gmt date to minutes
+                var localNow = new Date().getTimezoneOffset(); // get the timezone
+                // offset in minutes
+                var localTime = min - localNow; // get the local time
+                var dateStr = new Date(localTime * 1000 * 60);
+                return formatAMPM(dateStr);
+            }
+
+            function formatAMPM(date) {
+                var month = date.getMonth() + 1;
+                var day = date.getDate();
+                var year = date.getFullYear();
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var seconds = date.getSeconds();
+                var ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12; // the hour '0' should be '12'
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+                var strTime = month + "/" + day + "/" + year + " " + hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+                return strTime;
+            }
+
+            function htmlEncode(value) {
+                return $('<textarea/>').text(value).html();
+            }
+            function htmlDecode(value) {
+                return $('<textarea/>').html(value).text();
+            }
+            function stopTimerAll() {
+                $('[data-countdown]').each(function () {
+                    var $this = $(this);
+                    $this.countdown('stop');
+                });
+            }
+            function startTimerAll() {
+                $('[data-countdown]').each(function () {
+                    var $this = $(this), finalDate = new Date().getTime() - $(this).data('countdown');
+                    $this.countdown(finalDate, { elapse: true })
+                        .on('update.countdown', function (event) {
+                            var hours = event.offset.hours;
+                            var minutes = event.offset.minutes;
+                            var seconds = event.offset.seconds;
+                            if (hours > 0) {
+                                $this.html(event.strftime('%-H hr%!H %-M ' + (minutes <= 1 ? lang_min : lang_mins) + ' %-S ' + (seconds <= 1 ? lang_sec : lang_secs)));
+                            } else if (minutes > 0) {
+                                $this.html(event.strftime('%-M ' + (minutes <= 1 ? lang_min : lang_mins) + ' %-S ' + (seconds <= 1 ? lang_sec_ago : lang_secs_ago)));
+                            } else {
+                                $this.html(event.strftime('%-S ' + (seconds <= 1 ? lang_sec_ago : lang_secs_ago)));
+                            }
+                        });
+                });
+            }
+
+            function truncatemiddle(fullStr, strLen, separator) {
+                if (fullStr.length <= strLen) return fullStr;
+                separator = separator || '...';
+                var sepLen = separator.length,
+                    charsToShow = strLen - sepLen,
+                    frontChars = Math.ceil(charsToShow / 2),
+                    backChars = Math.floor(charsToShow / 2);
+                return fullStr.substr(0, frontChars + 1) +
+                    separator +
+                    fullStr.substr(fullStr.length - backChars);
+            };
+
+            //if (window.ethereum) {
+            //    handleEthereum();
+            //} else {
+            //    window.addEventListener('ethereum#initialized', handleEthereum, {
+            //        once: true,
+            //    });
+
+            //    // If the event is not dispatched by the end of the timeout,
+            //    // the user probably doesn't have MetaMask installed.
+            //    setTimeout(handleEthereum, 3000); // 3 seconds
+            //}
+
+            function handleEthereum() {
+                const { ethereum } = window;
+                if (ethereum && ethereum.isMetaMask) {
+                    console.log('X-Ethereum successfully detected!');
+                    alert("Ethereum successfully detected!")
+                    // Access the decentralized web!
+                } else {
+                    alert("Please install MetaMask!")
+                    console.log('X-Please install MetaMask!');
+                }
+            }
+
+            function navigatemetamaskmobile() {
+                /*window.location.href = "https://metamask.app.link/dapp/chat.blockscan.com/connect-wallet";*/
+                window.location.href = "https://metamask.app.link/";
+            }
+
+            function setCookie(cname, cvalue, exdays) {
+                const d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                let expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            function getCookie(cname) {
+                let name = cname + "=";
+                let decodedCookie = decodeURIComponent(document.cookie);
+                let ca = decodedCookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            function showspinnerformodal(elementid) {
+                document.getElementById(elementid).innerHTML = "<img src='images/Spinnersmall4.gif'>";
+            }
+
+            //ee
+            async function computeKey(address, walletType, webProvider,contractType) {
+                if (address == currentAccount) {
+                    e2ee_msgtosign = e2ee_msgtosign.replace('[ADDRESS]', address.toLowerCase());
+                    var objE2eeResponse = await getE2eeSettings(currentAccount);
+                    if (!objE2eeResponse.d.isSpammer) {
+                        const k = localStorage.getItem(uniqueurl + '_' + address.toLowerCase() + "_pkey");
+                        if (!k || k == '') {
+                            if (objE2eeResponse.d.hashKey && objE2eeResponse.d.hashKey.length > 0) {
+                                signE2eeMessage(objE2eeResponse.d.e2eeMessage, objE2eeResponse.d.hashKey, false, address, walletType, webProvider, contractType);
+                            } else {
+                                signE2eeMessage(e2ee_msgtosign, '', true, address, walletType, webProvider, contractType);
+                            }
+                        } else {
+                            document.getElementById("ContentPlaceHolder1_btnVerifySignedMessageServerSide").click();
+                        }
+                    } else {
+                        if (walletType == 'metamask'){
+                            document.getElementById("defaultstart").innerHTML = '<center>Your address has been reported for spam and is now restricted. <p>To request a review, <a href="https://forms.gle/YBWz1KMEWJ4pUzgM7">contact us</a>.</p></center>';
+                        } else {
+                            document.getElementById("maintitlemessage").innerHTML = 'Connected to ' + address;
+                            document.getElementById("connected").innerHTML = '<center>Your address has been reported for spam and is now restricted. <p>To request a review, <a href="https://forms.gle/YBWz1KMEWJ4pUzgM7">contact us</a>.</p></center>';
+                        }
+ 
+                    }
+                   
+                } else {
+                    //account change, force it refresh page.
+                    window.location.reload();
+                }
+            }
+
+            async function signE2eeMessage(msg, pkey, createNew, address, walletType, webProvider, contractType) {
+                
+                console.log("Calling e2eesign..");
+                if (address == currentAccount) {
+                    try {
+
+                        if (contractType == 'safe') {
+                            $("#importPassKeyModal").val(pkey);
+                            $('#importPassKeyModal').modal('show');
+                        } else {
+                            const from = currentAccount;
+                            var sign;
+
+                            if (walletType == 'walletconnect') {
+                                document.getElementById("btnwcsign").innerHTML = "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>Initializing end-to-end encryption..."
+                                sign = webProvider.eth.personal.sign(msg, currentAccount.toLowerCase(), "")
+                            } else {
+                                document.getElementById("maintitlemessage").innerHTML = document.getElementById("maintitlemessage").innerHTML + "<br><span id='spinner'></span>Initializing end-to-end encryption..."
+                                document.getElementById("maintitlemessage").innerHTML = document.getElementById("maintitlemessage").innerHTML.replace('<br>Signature failed...', '');
+                                sign = ethereum.request({
+                                    method: 'personal_sign',
+                                    params: [msg, from, ''],
+                                });
+                                showspinnerformodal('spinner');
+                            }
+
+                            sign.then(
+                                async function (value) {
+                                    console.log("success Value = " + value);
+                                    if (createNew) {
+                                        const wallet = ethers.Wallet.createRandom()
+                                        console.log(wallet);
+                                        await wallet.encrypt(value).then((json) => {
+                                            var keyStore = btoa(JSON.stringify(json));
+                                            localStorage.setItem(uniqueurl + '_' + address.toLowerCase() + "_pkey", wallet.privateKey);
+                                            ContentPlaceHolder1_txte2eepublickey.value = wallet.publicKey;
+                                            ContentPlaceHolder1_txte2eekey.value = keyStore;
+                                            document.getElementById("ContentPlaceHolder1_btnVerifySignedMessageServerSide").click();
+                                        })
+                                    } else {
+                                        pkey = JSON.parse(atob(pkey));
+                                        await ethers.Wallet.fromEncryptedJson(pkey, value).then((res) => {
+                                            localStorage.setItem(uniqueurl + '_' + currentAccount.toLowerCase() + "_pkey", res.privateKey);
+                                            document.getElementById("ContentPlaceHolder1_btnVerifySignedMessageServerSide").click();
+                                        }).catch((err) => {
+                                            document.querySelector('#btnwcsign').disabled = false;
+                                            window.alert(err);
+                                        });
+                                    }
+                                },
+                                function (error) {
+                                    console.log(error);
+                                    if (walletType == 'walletconnect') {
+                                        document.getElementById("btnwcsign").innerHTML = "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Sign-in with Web3Modal"
+                                        document.querySelector('#btnwcsign').disabled = false;
+                                    } else {
+                                        document.getElementById("metaMask_a").style = "pointer-events: ''; ";
+                                        document.getElementById("maintitlemessage").innerHTML = document.getElementById("maintitlemessage").innerHTML.replace('<br><span id="spinner"><img src="images/Spinnersmall4.gif"></span>Initializing end-to-end encryption...', "<br>Signature failed...");
+                                    }
+                                }
+                            );
+                        }
+                    } catch (err) {
+                        if (walletType == 'walletconnect') {
+                            document.getElementById("btnwcsign").innerHTML = "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Sign-in with Web3Modal"
+                        } else {
+                            document.getElementById("metaMask_a").style = "pointer-events: ''; ";
+                            document.getElementById("maintitlemessage").innerHTML = document.getElementById("maintitlemessage").innerHTML.replace('<br><span id="spinner"><img src="images/Spinnersmall4.gif"></span>Initializing end-to-end encryption...', "<br>Signature failed...");
+                        }
+                        console.error("Error:" + err);
+                    }
+                } else {
+                    //account change, force it refresh page.
+                    window.location.reload();
+                }
+            }
+
+            async function importPassKey(value) {
+                showspinnerformodal('spinner');
+                let tempKey = $("#importPassKeyModal")[0].value;
+                if (tempKey.length == 0) {
+                    const wallet = ethers.Wallet.createRandom()
+                    console.log(wallet);
+                    await wallet.encrypt(value).then((json) => {
+                        var keyStore = btoa(JSON.stringify(json));
+                        localStorage.setItem(uniqueurl + '_' + currentAccount.toLowerCase() + "_pkey", wallet.privateKey);
+                        ContentPlaceHolder1_txte2eepublickey.value = wallet.publicKey;
+                        ContentPlaceHolder1_txte2eekey.value = keyStore;
+                        document.getElementById("ContentPlaceHolder1_btnVerifySignedMessageServerSide").click();
+                    })
+                } else {
+                    pkey = JSON.parse(atob(tempKey));
+                    await ethers.Wallet.fromEncryptedJson(pkey, value).then((res) => {
+                        localStorage.setItem(uniqueurl + '_' + currentAccount.toLowerCase() + "_pkey", res.privateKey);
+                        document.getElementById("ContentPlaceHolder1_btnVerifySignedMessageServerSide").click();
+                    }).catch((err) => {
+                        window.alert(err);
+                    });
+                }
+            }
+
+            //barcode scanning
+            function opencamera() {
+                var html5QrcodeScanner = new Html5QrcodeScanner(
+                    "reader", { fps: 10, qrbox: 250 });
+                html5QrcodeScanner.render(onScanSuccess, onScanError);
+            }
+
+            function onScanSuccess(decodedText, decodedResult) {
+                // Handle on success condition with the decoded text or result.
+                console.log(`Scan result: ${decodedText}`, decodedResult);
+                $('#importPasskeyTxt').val(decodedText);
+            }
+
+            function onScanError(errorMessage) {
+                // handle on error condition, with error message
+                console.log(`Scan result: ${errorMessage}`, errorMessage);
+            }
+
+            //=== wallet connect part of the code ========================
+            async function wcsign() {
+   
+                try {
+                    document.querySelector('#btnwcsign').disabled = true;
+                    const web3 = new Web3(provider);
+                    console.log("Web3 instance is", web3);
+                    const accounts = await web3.eth.getAccounts();
+                    const ethersProvider = new ethers.providers.Web3Provider(provider);
+
+                    console.log("Got accounts", accounts);
+                    currentAccount = accounts[0];
+                    console.log("currentAccount = " + currentAccount);
+
+                    var message = msgtosign.replace("[address]", currentAccount.toLowerCase());
+                    document.getElementById("ContentPlaceHolder1_txtmessage").value = msgtosign.replace("[address]", currentAccount.toLowerCase());
+
+                    console.log("message to sign: " + message)
+
+                    document.getElementById("btnwcsign").innerHTML = "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Sign-in with Web3Modal"
+
+                    var result = await web3.eth.personal.sign(message, currentAccount.toLowerCase(), "")
+                    console.log("signed result=> " + result)
+
+                    var contractType = "personal";
+                    var contractTypeResponse = await getContractType(currentAccount);
+                    if (contractTypeResponse.d.Type) {
+                        contractType = contractTypeResponse.d.Type
+                    }
+
+                    //assign value
+                    document.getElementById("ContentPlaceHolder1_txtcurrentaddress").value = currentAccount;
+                    ContentPlaceHolder1_txtpersonalSignResult.value = result;
+                    ContentPlaceHolder1_txtContractType.value = contractType;
+
+                    if (contractType == "gnosis") {
+                        //for gnosis save use, declare the abi on msgHash event
+                        var abi = '[{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"msgHash","type":"bytes32"}],"name":"SignMsg","type":"event"},{"inputs":[{"internalType":"bytes32","name":"_message","type":"bytes32"},{"internalType":"bytes","name":"_signature","type":"bytes"}],"name":"isValidSignature","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"}]';
+                        const gnosisSafe = new ethers.Contract(currentAccount.toLowerCase(), abi, ethersProvider);
+                        const hashMessage = ethers.utils.hashMessage(message);
+                        //if signed is success
+                        // create listener that will listen for the SignMsg event on the Gnosis contract
+                        const listenToGnosisSafeContract = new Promise((resolve) => {
+                            gnosisSafe.on('SignMsg', async (msgHash) => {
+                                // Upon detecting the SignMsg event, validate that the contract signed the message
+                                const magicValue = await gnosisSafe.isValidSignature(hashMessage, result);
+                                if (magicValue) {
+                                    document.getElementById("btnwcsign").innerHTML = "<img width='20' src='/assets/svg/walletconnect.svg?v=0.1.3' class='me-1' alt='WalletConnect Logo'> Sign-in with Web3Modal";
+                                    /*computeKey(currentAccount, 'walletconnect', web3,'safe');*/
+                                    //not support e2ee for safe account
+                                    document.getElementById("ContentPlaceHolder1_btnVerifySignedMessageServerSide").click();
+                                }
+                            });
+                        });
+                        // start listening
+                        await listenToGnosisSafeContract;
+                    } else {
+                        document.getElementById("btnwcsign").innerHTML = "<img width='20' src='/assets/svg/walletconnect.svg?v=0.1.3' class='me-1' alt='WalletConnect Logo'> Sign-in with Web3Modal";
+                        computeKey(currentAccount, 'walletconnect', web3,'');
+                    }
+
+                } catch (e) {
+                    document.querySelector('#btnwcsign').disabled = false;
+                    console.log("failed or rejected sign message");
+                    location.href = "connect-wallet.html";
+                    return;
+                }
+
+            }
+
+            async function getQROneTimePass(address, code) {
+                var response = await $.ajax({
+                    url: "/connect-wallet.aspx/getqrOnetimepass",
+                    type: "POST",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify({ "address": address, "oneTimeQr": code })
+                })
+                return response;
+            }
+
+            async function getE2eeSettings(address) {
+                var response = await $.ajax({
+                    url: "/connect-wallet.aspx/getlogininfo",
+                    type: "POST",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify({ "address": address })
+                })
+                return response;
+            }
+
+            async function getContractType(address) {
+                var response = await $.ajax({
+                    url: "/connect-wallet.aspx/getcontracttypecall",
+                    type: "POST",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify({ "address": address })
+                })
+                return response;
+            }
+
+            function agree() {
+                setCookie("agreetos", 1, 365);
+            }
+            // DISCLAIMER MODAL
+            // =======================================================  
+
+            if (getCookie("agreetos") != "1") {
+                const $disclaimerModal = new bootstrap.Modal(document.querySelector('#disclaimerModal'));
+                $disclaimerModal.show();
+            }
+
+        </script>
+
+
+<!-- ========== Footer ========== -->
+<footer class="border-top py-3 mt-auto small">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between gap-1">
+            <!-- Powered by Blockscan -->
+            <div class="d-flex flex-wrap align-items-center me-3">
+                <spa>Blockscan © 2022 (SvrA)</spa>
+                <span class="text-muted mx-2">|</span>
+                <span><span class="d-none d-sm-inline-block">Made with <span class="text-danger">❤</span> by the team behind <a class="link-dark text-decoration-underline" title="Etherscan" href="https://etherscan.io/" target="_blank">Etherscan</a></span></span>
+            </div>
+            <!-- End Powered by Blockscan -->
+
+            <div class="d-flex gap-2">
+                <a class="link-dark text-decoration-underline" href="https://blockscan.com/" target="_blank">Blockscan</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="faq.html">FAQs</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="apis.html">API</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="https://blockscan.com/terms" target="_blank">TOS</a>
+                <span class="text-muted">|</span>
+                <a class="link-dark text-decoration-underline" href="https://twitter.com/BlockscanHQ" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS Global Compulsory  -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    // SET DEFAULT STATE ON TOUCHABLE DEVICES
+    // =======================================================
+    const isTouchDevice = (('ontouchstart' in window)
+        || (navigator.maxTouchPoints > 0)
+        || (navigator.msMaxTouchPoints > 0))
+        && window.innerWidth <= 991
+
+    if (isTouchDevice && !window.matchMedia('(display-mode: standalone)').matches) {
+
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            const addToHomeScreeniOSModal = new bootstrap.Modal(document.getElementById('addToHomeScreeniOSModal'));
+            addToHomeScreeniOSModal.show();
+        }
+        else {
+            const addToHomeScreenModal = new bootstrap.Modal(document.getElementById('addToHomeScreenModal'));
+
+            window.addEventListener("beforeinstallprompt", function (event) {
+                event.preventDefault();
+                addToHomeScreenModal.show();
+                window.promptEvent = event;
+            });
+
+            document.getElementById('btnAddToHomeScreenModal').addEventListener("click", function (event) {
+                addToHomeScreenModal.hide();
+                window.promptEvent.prompt();
+            });
+        }
+    }
+
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker
+                .register("serviceWorker.js")
+                .then(res => console.log('service worker registered'))
+                .catch(err => console.log("service worker not registered", err))
+        })
+    }
+</script>
+</body>
+
+<!-- Mirrored from chat.blockscan.com/connect-wallet by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Feb 2023 20:40:03 GMT -->
+</html>
